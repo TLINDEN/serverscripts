@@ -12,6 +12,8 @@ my %vhosts = (
               '144.76.67.249'        => 'www.daemon.de',
               '127.0.0.1'            => 'www.daemon.de',
               'scipown.e3.daemon.de' => 'www.daemon.de',
+              '144.76.67.168'        => 'www.backadmins.de',
+              'scippub.e3.daemon.de' => 'www.backadmins.de',
              );
 
 sub tcpcon() {
@@ -53,7 +55,7 @@ sub pfdrops() {
 
 sub nginxstats() {
   my $jail = shift;
-  my $cmd = "/usr/local/sbin/logtail2 -f /jail/run/scipown/tmp/metrics.log -o /tmp/$jail-nginx-metrics.offset";
+  my $cmd = "/usr/local/sbin/logtail2 -f /jail/run/${jail}/tmp/metrics.log -o /tmp/$jail-nginx-metrics.offset";
 
   # parse latest metrics
   my %metrics;
@@ -120,4 +122,5 @@ open ND, "| sponge $log";
 print ND tcpcon();
 print ND pfdrops();
 print ND &nginxstats("scipown");
+print ND &nginxstats("scippub");
 close ND;
