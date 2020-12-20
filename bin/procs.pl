@@ -14,6 +14,12 @@ my %vhosts = (
               'scipown.e3.daemon.de' => 'www.daemon.de',
               '144.76.67.168'        => 'www.backadmins.de',
               'scippub.e3.daemon.de' => 'www.backadmins.de',
+              'back-admin.de'        => 'www.backadmins.de',
+              'backadmin.de'         => 'www.backadmins.de',
+              'backadmins.de'        => 'www.backadmins.de',
+              'backspacken.de'       => 'www.backadmins.de',
+              'back-spacken.de'      => 'www.backadmins.de',
+              'back-admins.de'       => 'www.backadmins.de',
              );
 
 sub tcpcon() {
